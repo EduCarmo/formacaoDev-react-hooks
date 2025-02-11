@@ -4,7 +4,7 @@ import Logo from "./Logo";
 import MenuPrincipalItem from "./MenuPrincipalItem";
 import MenuPrincipalSecao from "./MenuPrincipalSecao";
 import Flex from "./Flex";
-import { IconNumbers } from "@tabler/icons-react";
+import { IconArrowLeftRight, IconLetterCase, IconMathGreater, IconNumbers, IconRefreshAlert, IconSection, IconUsers } from "@tabler/icons-react";
 
 export default function MenuPrincipal() {
     const secoes = [
@@ -12,7 +12,14 @@ export default function MenuPrincipal() {
             titulo: "Essenciais",
             aberta: true,
             itens: [
-                {titulo: "Contador", url:"/essenciais/contador", tag: "useSate", icon: <IconNumbers />  }
+                {titulo: "Contador", url:"/essenciais/contador", tag: "useSate", icone: <IconNumbers />  },
+                {titulo: "Votacao", url:"/essenciais/votacao", tag: "useState", icone: <IconUsers />  },
+                {titulo: "Consulta à API", url:"/essenciais/consultaApi", tag: "useEffect", icone: <IconArrowLeftRight />  },
+                {titulo: "Maior", url:"/essenciais/maior", tag: "useEffect", icone: <IconMathGreater />  },
+                {titulo: "Contagem de Caracteres", url:"/essenciais/contagemCaracteresEffect", tag: "useEffect", icone: <IconLetterCase />  },
+                {titulo: "State vs Ref", url:"/essenciais/stateVsRef", tag: "useRef", icone: <IconRefreshAlert />  },
+                {titulo: "Referenciando Elemento", url:"/essenciais/refElemento", tag: "useRef", icone: <IconSection/>  },
+                {titulo: "Contagem de Caracteres (Reff)", url:"/essenciais/contagemCaracteresReff", tag: "useRef", icone: <IconLetterCase />  },
             ],
         },
     ];
