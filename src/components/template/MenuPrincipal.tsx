@@ -4,8 +4,10 @@ import Logo from "./Logo";
 import MenuPrincipalItem from "./MenuPrincipalItem";
 import MenuPrincipalSecao from "./MenuPrincipalSecao";
 import Flex from "./Flex";
-import { IconAppWindow, IconArrowLeftRight, IconDimensions, IconLetterCase, IconLock, IconMathGreater, IconNumbers, IconRefreshAlert, IconSection, IconUsers } from "@tabler/icons-react";
-import Titulo from "./Titulo";
+import { IconAppWindow, IconArrowLeftRight, IconDimensions, IconLetterCase, IconLock, IconMathGreater, IconMenu, IconNumbers, IconRefreshAlert, IconSection, IconUsers, IconX } from "@tabler/icons-react";
+import useTamanhoJanela from "@/data/hooks/useTamanhoJanela";
+import { useEffect } from "react";
+import useBoolean from "@/data/hooks/useBoolean";
 
 export default function MenuPrincipal() {
     const secoes = [
@@ -33,7 +35,15 @@ export default function MenuPrincipal() {
             ],
         }
     ];
-    const mini = false;
+    const [mini, toggleMini, miniTrue] = useBoolean(false);
+    let tamanho = useTamanhoJanela()
+
+    useEffect(() => {
+        if(tamanho === "md" || tamanho === "sm") {
+            miniTrue()
+        }
+    }, [tamanho])
+
     function renderizarSecoes() {
         return secoes.map((secao: MenuSecao) => (
             <MenuPrincipalSecao key={secao.titulo} titulo={secao.titulo} mini={mini} aberta={secao.aberta}>
@@ -67,6 +77,9 @@ export default function MenuPrincipal() {
         >
             <Flex center className="m-7">
                 {!mini && <Logo />}
+                <div className="cursor-pointer" onClick={toggleMini}>
+                    {mini ? <IconMenu /> : <IconX /> }
+                </div>
             </Flex>
             <nav className="flex flex-col gap-4 m-7">{renderizarSecoes()}</nav>
         </aside>
