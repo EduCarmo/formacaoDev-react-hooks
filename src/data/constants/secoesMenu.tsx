@@ -1,16 +1,22 @@
+import Titulo from "@/components/template/Titulo";
 import {
   IconAppWindow,
   IconArrowLeftRight,
+  IconColorSwatch,
   IconDimensions,
+  IconForms,
   IconLetterCase,
   IconLock,
   IconMathGreater,
   IconNumbers,
+  IconPin,
   IconRefreshAlert,
   IconSection,
   IconShoppingCart,
+  IconTextColor,
   IconUsers,
 } from "@tabler/icons-react";
+import { time } from "console";
 
 export const secoes = [
   {
@@ -100,6 +106,42 @@ export const secoes = [
         url: "/contexto/loja",
         tag: "useContext",
         icone: <IconShoppingCart />,
+      },
+    ],
+  },
+  {
+    titulo: "Outros",
+    aberta: false,
+    itens: [
+      {
+        titulo: "Memoizando elementos",
+        url: "/outros/memoizacao",
+        tag: "useMemo",
+        icone: <IconPin />,
+      },
+      {
+        titulo: "Memoizando Funções",
+        url: "/outros/memoizandoFuncoes",
+        tag: "useCallback",
+        icone: <IconPin />,
+      },
+      { 
+        titulo: "Formulario 1",
+        url: "/outros/formularioImperativeHandle",
+        tag: "useImperativeHandle",
+        icone: <IconForms />
+      },
+      {
+        titulo: "Formulario 2",
+        url: "/outros/texto",
+        tag: "useImperativeHandle",
+        icone: <IconTextColor />
+      },
+      {
+        titulo: "Gerador de Cor",
+        url: "/outros/geradorDeCor",
+        tag: "useLayoutEffect",
+        icone: <IconColorSwatch />
       },
     ],
   },
